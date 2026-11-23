@@ -7,10 +7,13 @@ import joblib
 FEATURES = ["pclass", "sex", "age", "fare"]
 
 # Load trained model
+from pathlib import Path
+
+MODEL_PATH = Path(__file__).parent / "model.joblib"
+
 @st.cache_resource
 def load_model():
-    return joblib.load("model.joblib")
-
+    return joblib.load(MODEL_PATH)
 
 # App title
 st.title("Titanic Survival Prediction")
